@@ -6,4 +6,4 @@ def index(request):
     #return HttpResponse("Mi primera pagina Django!!!")
 
 def metodoViernes(request):
-    return HttpResponse("Hoy es viernes, mañana sábado")
+    return render(request, 'aplicacion/viernes.html')
