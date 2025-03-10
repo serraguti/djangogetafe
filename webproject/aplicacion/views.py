@@ -7,3 +7,6 @@ def index(request):
 
 def metodoViernes(request):
     return render(request, 'aplicacion/viernes.html')
+
+def paginaPelicula(request):
+    return render(request, 'aplicacion/pelicula.html')

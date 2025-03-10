@@ -1,0 +1,34 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p {
+            color:fuchsia;
+            background-color: yellow;
+        }
+
+        .verde {
+            background-color: lightgreen;
+        }
+    </style>
+    <link rel="stylesheet"
+    type="text/css"
+    href="{% static 'css/pelis.css' %}"/>
+</head>
+<body>
+    {% include 'aplicacion/menu.html' %}
+    <h1 class="verde">Mejor película de Disney</h1>
+    <p>Bajo el mar...bajo el mar....</p>
+    <p>vives alegre siendo sirena</p>
+    <p>eres feliz!!!!</p>
+    <img onmouseover="cambiar(this)" src="{% static 'images/sirena.jpg' %}"/>
+    <img onmouseover="cambiar(this)" src="{% static 'images/sirena.jpg' %}"/>
+    <img onmouseover="cambiar(this)" src="{% static 'images/sirena.jpg' %}"/>
+    <script type="text/javascript"
+    src="{% static 'js/pelis.js' %}"></script>
+</body>
+</html>
