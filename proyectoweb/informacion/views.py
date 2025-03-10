@@ -6,3 +6,11 @@ def index(request):
 
 def pelis(request):
     return render(request, 'informacion/pelis.html')
+
+def futbol(request):
+    nombre = "Real Madrid"
+    data = {
+        "equipo": nombre
+    }
+    return render(request, 'informacion/futbol.html', data)
+

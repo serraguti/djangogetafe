@@ -3,5 +3,6 @@ from informacion import views
 
 urlpatterns=[
     path('', views.index, name='index'),
-    path('pelis/', views.pelis, name='pelis')
+    path('pelis/', views.pelis, name='pelis'),
+    path('futbol/', views.futbol, name='futbol')
 ]
