@@ -11,12 +11,14 @@
     <table border="1">
         <tr>
             <th>NOMBRE</th>
-            <th>EDAD</th>
+            <th>DEMARCACION</th>
+            <th>CAMISETA</th>
         </tr>
-        {% for valor in personas  %}
+        {% for valor in jugadores  %}
             <tr>
-                <td>{{ valor.nombre }}</td>
-                <td>{{valor.edad}}</td>
+                <td>{{ valor.Nombre }}</td>
+                <td>{{valor.Demarcacion}}</td>
+                <td>{{ valor.Numero }}</td>
             </tr>
         {% endfor %}
     </table>
