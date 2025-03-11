@@ -62,3 +62,6 @@ def colores(request):
         return render(request, 'informacion/colores.html',context)
     else:
         return render(request, 'informacion/colores.html')
+
+def saludo(request):
+    return render(request, 'informacion/saludo.html')
