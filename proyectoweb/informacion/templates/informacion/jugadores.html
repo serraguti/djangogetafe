@@ -8,5 +8,17 @@
 <body>
     {% include 'informacion/menu.html' %}
     <h1>Jugadores</h1>
+    <table border="1">
+        <tr>
+            <th>NOMBRE</th>
+            <th>EDAD</th>
+        </tr>
+        {% for valor in personas  %}
+            <tr>
+                <td>{{ valor.nombre }}</td>
+                <td>{{valor.edad}}</td>
+            </tr>
+        {% endfor %}
+    </table>
 </body>
 </html>
