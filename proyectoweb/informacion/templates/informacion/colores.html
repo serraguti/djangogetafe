@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GET</title>
+</head>
+<body>
+    {% include 'informacion/menu.html' %}
+    <h1>Colores</h1>
+    <ul>
+        <li>
+            <a href="/colores?micolor=blue">Azul</a>
+        </li>
+        <li>
+            <a href="/colores?micolor=red">Rojo</a>
+        </li>
+        <li>
+            <a href="/colores?micolor=green">Verde</a>
+        </li>
+    </ul>
+    <h2 style="color: {{colordibujo}}">
+        El color recibido es {{colordibujo}}
+    </h2>
+</body>
+</html>

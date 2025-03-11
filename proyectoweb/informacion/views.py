@@ -48,3 +48,17 @@ def jugadores(request):
     }
     return render(request, 'informacion/jugadores.html',context)
 
+def colores(request):
+    #RECUPERAMOS LA VARIABLE QUE NOS ESTAN ENVIANDO
+    #MEDIANTE GET (micolor)
+    #DEBEMOS COMPROBAR QUE RECIBIMOS ALGO LLAMADO micolor
+    if ('micolor' in request.GET):
+        colorRecibido = request.GET['micolor']
+        #CON EL COLOR RECIBIDO SE LO DEVOLVEMOS AL DIBUJO
+        #PARA PINTARLO
+        context = {
+            "colordibujo": colorRecibido
+        }
+        return render(request, 'informacion/colores.html',context)
+    else:
+        return render(request, 'informacion/colores.html')
