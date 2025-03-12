@@ -120,9 +120,13 @@ def tablaMultiplicar(request):
         dato = request.POST["cajanumero"]
         numero = int(dato)
         listaTabla = []
-        for i in range(11):
+        for i in range(10):
             resultado = numero * (i + 1) 
-            listaTabla.append(resultado)
+            operacion = str(numero) + " * " + str((i + 1))
+            listaTabla.append({
+                "operacion": operacion,
+                "resultado": resultado
+            })
         context = {
             "listatabla": listaTabla
         }

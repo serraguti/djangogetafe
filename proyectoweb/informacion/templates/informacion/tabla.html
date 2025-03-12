@@ -18,11 +18,13 @@
     </form>
     <table border="1">
         <tr>
+            <th>OPERACION</th>
             <th>RESULTADO</th>
         </tr>
-        {% for num in listatabla %}
+        {% for dato in listatabla %}
         <tr>
-            <td>{{num}}</td>
+            <td>{{dato.operacion}}</td>
+            <td>{{dato.resultado}}</td>
         </tr>
         {% endfor %}
     </table>
