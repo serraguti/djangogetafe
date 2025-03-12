@@ -8,10 +8,19 @@
 <body>
     {% include 'informacion/menu.html' %}
     <h1>Hola mundo</h1>
-    <ul>
+    <table border="1">
+        <tr>
+            <th>Id departamento</th>
+            <th>Nombre</th>
+            <th>Localidad</th>
+        </tr>
         {% for d in departamentos%}
-            <li>{{d.localidad}}</li>
+        <tr>
+            <td>{{d.numero}}</td>
+            <td>{{d.nombre}}</td>
+            <td>{{d.localidad}}</td>
+        </tr>
         {% endfor %}
-    </ul>
+    </table>
 </body>
 </html>

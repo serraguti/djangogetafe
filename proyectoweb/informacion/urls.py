@@ -10,5 +10,6 @@ urlpatterns=[
     path('saludo/', views.saludo, name='saludo'),
     path('sumarnumeros/', views.sumarNumeros, name='sumarnumeros'),
     path('collatz/', views.collatz, name='collatz'),
+    path('datos/', views.datos, name='datos'),
     path('tabla/', views.tablaMultiplicar, name='tabla'),
 ]
