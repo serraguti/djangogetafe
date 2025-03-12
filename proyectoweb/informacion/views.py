@@ -1,5 +1,5 @@
 from django.shortcuts import render
-
+from informacion.models import ServiceDepartamentos
 # Create your views here.
 def index(request):
     return render(request, 'informacion/index.html')
@@ -106,3 +106,27 @@ def collatz(request):
         return render(request, 'informacion/collatz.html', context)
     else:
         return render(request, 'informacion/collatz.html')
+    
+def datos(request):
+    servicio = ServiceDepartamentos()
+    departamentos = servicio.getDepartamentos()
+    context = {
+        "departamentos": departamentos
+    }
+    return render(request, 'informacion/datos.html', context)
+
+def tablaMultiplicar(request):
+    if ('cajanumero' in request.POST):
+        dato = request.POST["cajanumero"]
+        numero = int(dato)
+        listaTabla = []
+        for i in range(11):
+            resultado = numero * (i + 1) 
+            listaTabla.append(resultado)
+        context = {
+            "listatabla": listaTabla
+        }
+        return render(request, 'informacion/tabla.html', context)
+    else:
+        return render(request, 'informacion/tabla.html')
+    
