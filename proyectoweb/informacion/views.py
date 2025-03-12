@@ -88,3 +88,21 @@ def sumarNumeros(request):
         return render(request, 'informacion/sumarnumeros.html',context)
     else:
         return render(request, 'informacion/sumarnumeros.html')
+
+def collatz(request):
+    if ('cajanumero' in request.POST):
+        dato = request.POST['cajanumero']
+        numero = int(dato)
+        listanumeros = []
+        while (numero != 1):
+            if (numero % 2 == 0):
+                numero = int(numero / 2)
+            else:
+                numero = int(numero * 3 + 1)
+            listanumeros.append(numero)
+        context = {
+            "numeroscollatz": listanumeros
+        }
+        return render(request, 'informacion/collatz.html', context)
+    else:
+        return render(request, 'informacion/collatz.html')

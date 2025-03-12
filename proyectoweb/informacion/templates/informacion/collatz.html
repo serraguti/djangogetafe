@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% include 'informacion/menu.html' %}
+    <h1>Conjetura Collatz</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label>Introduzca número</label>
+        <input type="number" name="cajanumero"/><br/>
+        <button>
+            Collatz
+        </button>
+    </form>
+    <ul>
+        {% for num in numeroscollatz %}
+            <li> {{num}} </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
