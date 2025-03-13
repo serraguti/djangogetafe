@@ -2,6 +2,34 @@ from django.db import models
 import oracledb
 
 # Create your models here.
+class Hospital:
+    idHospital = 0
+    nombre = ""
+    direccion = ""
+    telefono = ""
+    camas = 0
+
+class ServiceHospital:
+    def __init__(self):
+        self.connection = oracledb.connect(user='SYSTEM'
+           , password='oracle', dsn='localhost/xe')
+    
+    def getHospitales(self):
+        sql = "select * from HOSPITAL"
+        cursor = self.connection.cursor()
+        cursor.execute(sql)
+        lista = []
+        for row in cursor:
+            hosp = Hospital()
+            hosp.idHospital = row[0]
+            hosp.nombre = row[1]
+            hosp.direccion = row[2]
+            hosp.telefono = row[3]
+            hosp.camas = row[4]
+            lista.append(hosp)
+        cursor.close()
+        return lista
+
 class Departamento:
     numero = 0
     nombre = ""
