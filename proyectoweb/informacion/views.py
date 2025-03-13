@@ -134,3 +134,18 @@ def tablaMultiplicar(request):
     else:
         return render(request, 'informacion/tabla.html')
     
+def insertarDepartamentos(request):
+    #PREGUNTAMOS DE FORMA OBLIGATORIA SI HEMOS
+    #RECIBIDO DATOS DEL FORMULARIO
+    if ('cajanombre' in request.POST):
+        nombre = request.POST['cajanombre']
+        numero = request.POST['cajanumero']
+        localidad = request.POST['cajalocalidad']
+        servicio = ServiceDepartamentos();
+        registros = servicio.insertarDepartamento(numero, nombre, localidad);
+        context = {
+            "insertados": registros
+        }
+        return render(request, 'informacion/insertar.html', context)
+    else:
+        return render(request, 'informacion/insertar.html')

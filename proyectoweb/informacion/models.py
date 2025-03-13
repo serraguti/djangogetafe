@@ -1,5 +1,6 @@
 from django.db import models
-import oracledb
+#import oracledb
+import pyodbc
 # Create your models here.
 
 class Departamento: 
@@ -9,7 +10,7 @@ class Departamento:
 
 class ServiceDepartamentos:
     def __init__(self):
-        self.connection = oracledb.connect(user='SYSTEM', password='oracle', dsn='localhost/xe')
+        self.connection = pyodbc.connect('DRIVER={SQL Server};SERVER=localhost\\DESARROLLO;DATABASE=HOSPITAL;UID=SA;TrustServerCertificate=yes') 
 
     def getDepartamentos(self):
         sql = "select * from DEPT"
@@ -24,3 +25,13 @@ class ServiceDepartamentos:
             departamentos.append(dept)
         cursor.close()
         return departamentos
+
+    def insertarDepartamento(self, numero, nombre, localidad):
+        #sql = "insert into DEPT values (:id, :nombre, :localidad)"
+        sql = "insert into DEPT values (?, ?, ?)"
+        cursor = self.connection.cursor()
+        cursor.execute(sql, (numero, nombre, localidad))
+        registros = cursor.rowcount
+        self.connection.commit()
+        cursor.close()
+        return registros
