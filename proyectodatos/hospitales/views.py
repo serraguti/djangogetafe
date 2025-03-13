@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from hospitales.models import ServiceDepartamentos
+from hospitales.models import ServiceDepartamentos, ServiceHospital
 
 # Create your views here.
 def index(request):
@@ -14,4 +14,9 @@ def departamentosBBDD(request):
     return render(request, 'pages/departamentos.html', context)
 
 def hospitalesBBDD(request):
-    return render(request, 'pages/hospitales.html')
+    servicio = ServiceHospital()
+    hospitales = servicio.getHospitales()
+    context = {
+        "hospitales": hospitales
+    }
+    return render(request, 'pages/hospitales.html', context)

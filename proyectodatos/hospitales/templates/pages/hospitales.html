@@ -8,5 +8,23 @@
 <body>
     {% include 'pages/menu.html' %}
     <h1>Hospitales</h1>
+    <table border="1">
+        <tr>
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Dirección</th>
+            <th>Teléfono</th>
+            <th>Camas</th>
+        </tr>
+        {% for h in hospitales %}
+        <tr>
+            <td>{{h.idHospital}}</td>
+            <td>{{h.nombre}}</td>
+            <td>{{h.direccion}}</td>
+            <td>{{h.telefono}}</td>
+            <td>{{h.camas}}</td>
+        </tr>
+        {% endfor %}
+    </table>
 </body>
 </html>
