@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    {% include 'pages/menu.html' %}
+    <h1>Create Departamento</h1>
+    <form method="post">
+        {% csrf_token %}
+        <label>Id departamento</label>
+        <input type="number" name="cajanumero"/><br/>
+        <label>Nombre</label>
+        <input type="text" name="cajanombre"/><br/>
+        <label>Localidad</label>
+        <input type="text" name="cajalocalidad"/><br/>
+        <button>
+            Insertar departamento
+        </button>
+    </form>
+    <h2 style="color:blue">
+        {{mensaje}}
+    </h2>
+</body>
+</html>

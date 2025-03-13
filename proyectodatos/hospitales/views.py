@@ -20,3 +20,17 @@ def hospitalesBBDD(request):
         "hospitales": hospitales
     }
     return render(request, 'pages/hospitales.html', context)
+
+def insertarDepartamento(request):
+    if ('cajanumero' in request.POST):
+        servicio = ServiceDepartamentos()
+        numero = request.POST['cajanumero']
+        nombre = request.POST['cajanombre']
+        localidad = request.POST['cajalocalidad']
+        registros = servicio.insertDepartamento(numero, nombre, localidad)
+        context = {
+            "mensaje": "Registros insertados: " + str(registros)
+        }
+        return render(request, 'pages/insertardepartamento.html', context)
+    else:
+        return render(request, 'pages/insertardepartamento.html')

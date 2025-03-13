@@ -40,6 +40,15 @@ class ServiceDepartamentos:
         self.connection = oracledb.connect(user='SYSTEM'
            , password='oracle', dsn='localhost/xe')
     
+    def insertDepartamento(self, numero, nombre, localidad):
+        sql = "insert into DEPT values (:p1, :p2, :p3)"
+        cursor = self.connection.cursor()
+        cursor.execute(sql, (numero, nombre, localidad))
+        registros = cursor.rowcount
+        self.connection.commit()
+        cursor.close()
+        return registros
+
     def getDepartamentos(self):
         sql = "select * from DEPT"
         cursor = self.connection.cursor()
