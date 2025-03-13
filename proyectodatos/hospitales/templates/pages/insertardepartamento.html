@@ -7,17 +7,13 @@
 </head>
 <body>
     {% include 'pages/menu.html' %}
-    <h1>Create Departamento</h1>
+    <h1>Delete Departamento</h1>
     <form method="post">
         {% csrf_token %}
         <label>Id departamento</label>
         <input type="number" name="cajanumero"/><br/>
-        <label>Nombre</label>
-        <input type="text" name="cajanombre"/><br/>
-        <label>Localidad</label>
-        <input type="text" name="cajalocalidad"/><br/>
         <button>
-            Insertar departamento
+            Eliminar departamento
         </button>
     </form>
     <h2 style="color:blue">
