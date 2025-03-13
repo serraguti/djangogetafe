@@ -12,3 +12,6 @@ def departamentosBBDD(request):
         "departamentos": departamentos
     }
     return render(request, 'pages/departamentos.html', context)
+
+def hospitalesBBDD(request):
+    return render(request, 'pages/hospitales.html')
