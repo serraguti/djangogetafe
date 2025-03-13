@@ -28,9 +28,10 @@ def insertarDepartamento(request):
         nombre = request.POST['cajanombre']
         localidad = request.POST['cajalocalidad']
         registros = servicio.insertDepartamento(numero, nombre, localidad)
+        departamentos = servicio.getDepartamentos()
         context = {
-            "mensaje": "Registros insertados: " + str(registros)
+            "departamentos": departamentos
         }
-        return render(request, 'pages/insertardepartamento.html', context)
+        return render(request, 'pages/departamentos.html', context)
     else:
         return render(request, 'pages/insertardepartamento.html')
