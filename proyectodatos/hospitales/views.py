@@ -63,4 +63,13 @@ def updateDepartamento(request):
         return render(request, 'pages/updatedepartamento.html')
 
 def detallesDepartamento(request):
-    return render(request, 'pages/detallesdepartamento.html')
+    if ('id' in request.GET):
+        servicio = ServiceDepartamentos()
+        numero = request.GET['id']
+        departamento = servicio.detallesDepartamento(numero)
+        context = {
+            "departamento": departamento
+        }
+        return render(request, 'pages/detallesdepartamento.html', context)
+    else:
+        return render(request, 'pages/detallesdepartamento.html')
