@@ -11,11 +11,14 @@
     <form method="post">
         {% csrf_token %}
         <label>Id departamento</label>
-        <input type="number" name="cajanumero"/><br/>
+        <input type="number" name="cajanumero" 
+        value="{{departamento.numero}}"/><br/>
         <label>Nombre</label>
-        <input type="text" name="cajanombre"/><br/>
+        <input type="text" name="cajanombre"
+        value="{{departamento.nombre}}"/><br/>
         <label>Localidad</label>
-        <input type="text" name="cajalocalidad"/><br/>
+        <input type="text" name="cajalocalidad"
+        value="{{departamento.localidad}}"/><br/>
         <button>Update</button>
     </form>
     <h1 style="color:blue">{{mensaje}}</h1>

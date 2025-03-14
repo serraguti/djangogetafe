@@ -15,6 +15,7 @@
             <th>Localidad</th>
             <th></th>
             <th></th>
+            <th></th>
         </tr>
         {% for d in departamentos %}
         <tr>
@@ -26,6 +27,9 @@
             </td>
             <td style="background-color: lightcoral">
                 <a href="/deletedepartamento?id={{d.numero}}">Delete</a>
+            </td>
+            <td style="background-color: lightgreen;">
+                <a href="/updatedepartamento?id={{d.numero}}">Update</a>
             </td>
         </tr>
         {% endfor %}

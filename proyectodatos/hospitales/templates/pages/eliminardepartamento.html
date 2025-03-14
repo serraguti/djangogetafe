@@ -8,10 +8,13 @@
 <body>
     {% include 'pages/menu.html' %}
     <h1>Delete departamento</h1>
+    <h2 style="color:red">¿Está seguro de eliminar el departamento
+        {{numero}}?
+    </h2>
     <form method="post">
         {% csrf_token %}
         <label>Id departamento</label>
-        <input type="number" name="cajanumero"
+        <input type="hidden" name="cajanumero" 
         value="{{numero}}"/>
         <button>
             Delete 
