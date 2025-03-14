@@ -40,6 +40,15 @@ class ServiceDepartamentos:
         self.connection = oracledb.connect(user='SYSTEM'
            , password='oracle', dsn='localhost/xe')
     
+    def eliminarDepartamento(self, numero):
+        sql = "delete from DEPT where DEPT_NO=:p1"
+        cursor = self.connection.cursor()
+        cursor.execute(sql, (numero, ))
+        registros = cursor.rowcount
+        self.connection.commit()
+        cursor.close()
+        return registros
+
     def insertDepartamento(self, numero, nombre, localidad):
         sql = "insert into DEPT values (:p1, :p2, :p3)"
         cursor = self.connection.cursor()

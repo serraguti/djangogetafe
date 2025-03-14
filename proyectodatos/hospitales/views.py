@@ -35,3 +35,15 @@ def insertarDepartamento(request):
         return render(request, 'pages/departamentos.html', context)
     else:
         return render(request, 'pages/insertardepartamento.html')
+
+def eliminarDepartamento(request):
+    if ('cajanumero' in request.POST):
+        servicio = ServiceDepartamentos()
+        numero = request.POST['cajanumero']
+        registros = servicio.eliminarDepartamento(numero);
+        context = {
+            "mensaje": "Registros eliminados: " + str(registros)
+        }
+        return render(request, 'pages/eliminardepartamento.html', context)
+    else:
+        return render(request, 'pages/eliminardepartamento.html')

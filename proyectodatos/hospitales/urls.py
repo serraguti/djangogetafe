@@ -6,4 +6,5 @@ urlpatterns = [
     path('departamentos/', views.departamentosBBDD, name='departamentos'),
     path('hospitales/', views.hospitalesBBDD, name='hospitales'),
     path('insertardept/', views.insertarDepartamento, name='insertardept'),
+    path('deletedepartamento/', views.eliminarDepartamento, name='deletedept')
 ]

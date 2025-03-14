@@ -7,21 +7,15 @@
 </head>
 <body>
     {% include 'pages/menu.html' %}
-    <h1>Update Departamento</h1>
+    <h1>Delete departamento</h1>
     <form method="post">
         {% csrf_token %}
         <label>Id departamento</label>
-        <input type="number" name="cajanumero"/><br/>
-        <label>Nombre</label>
-        <input type="text" name="cajanombre"/><br/>
-        <label>Localidad</label>
-        <input type="text" name="cajalocalidad"/><br/>
+        <input type="number" name="cajanumero"/>
         <button>
-            Update departamento
+            Delete 
         </button>
     </form>
-    <h2 style="color:blue">
-        {{mensaje}}
-    </h2>
+    <h2 style="color:red">{{mensaje}}</h2>
 </body>
 </html>
