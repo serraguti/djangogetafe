@@ -40,6 +40,18 @@ class ServiceDepartamentos:
         self.connection = oracledb.connect(user='SYSTEM'
            , password='oracle', dsn='localhost/xe')
     
+    def detallesDepartamento(self, numero):
+        sql = "select * from DEPT where DEPT_NO=:p1"
+        cursor = self.connection.cursor()
+        cursor.execute(sql, (numero,))
+        row = cursor.fetchone()
+        dept = Departamento()
+        dept.numero = row[0]
+        dept.nombre = row[1]
+        dept.localidad = row[2]
+        cursor.close()
+        return dept
+
     def updateDepartamento(self, numero, nombre, localidad):
         sql = "update DEPT set DNOMBRE=:p1, LOC=:p2 where DEPT_NO=:p3"
         cursor = self.connection.cursor()

@@ -61,3 +61,6 @@ def updateDepartamento(request):
         return render(request, 'pages/updatedepartamento.html', context)
     else:
         return render(request, 'pages/updatedepartamento.html')
+
+def detallesDepartamento(request):
+    return render(request, 'pages/detallesdepartamento.html')
