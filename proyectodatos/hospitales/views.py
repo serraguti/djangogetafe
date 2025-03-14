@@ -45,6 +45,12 @@ def eliminarDepartamento(request):
             "mensaje": "Registros eliminados: " + str(registros)
         }
         return render(request, 'pages/eliminardepartamento.html', context)
+    elif ('id' in request.GET):
+        numero = request.GET['id']
+        context = {
+            "numero": numero
+        }
+        return render(request, 'pages/eliminardepartamento.html', context)
     else:
         return render(request, 'pages/eliminardepartamento.html')
     
