@@ -7,7 +7,7 @@
 </head>
 <body>
     {% include 'pages/menu.html' %}
-    <h1>Create Departamento</h1>
+    <h1>Update departamento</h1>
     <form method="post">
         {% csrf_token %}
         <label>Id departamento</label>
@@ -16,12 +16,8 @@
         <input type="text" name="cajanombre"/><br/>
         <label>Localidad</label>
         <input type="text" name="cajalocalidad"/><br/>
-        <button>
-            Insertar departamento
-        </button>
+        <button>Update</button>
     </form>
-    <h2 style="color:blue">
-        {{mensaje}}
-    </h2>
+    <h1 style="color:blue">{{mensaje}}</h1>
 </body>
 </html>

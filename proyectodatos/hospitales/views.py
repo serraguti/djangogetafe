@@ -47,3 +47,17 @@ def eliminarDepartamento(request):
         return render(request, 'pages/eliminardepartamento.html', context)
     else:
         return render(request, 'pages/eliminardepartamento.html')
+    
+def updateDepartamento(request):
+    if ('cajanumero' in request.POST):
+        servicio = ServiceDepartamentos()
+        numero = request.POST['cajanumero']
+        nombre = request.POST['cajanombre']
+        localidad = request.POST['cajalocalidad']
+        registros = servicio.updateDepartamento(numero, nombre, localidad)
+        context = {
+            "mensaje": "Registros modificados: " + str(registros)
+        }
+        return render(request, 'pages/updatedepartamento.html', context)
+    else:
+        return render(request, 'pages/updatedepartamento.html')
