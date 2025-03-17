@@ -2,6 +2,35 @@ from django.db import models
 import oracledb
 
 # Create your models here.
+class Empleado:
+    idEmpleado = 0
+    apellido = ""
+    oficio = ""
+    salario = 0
+    departamento = 0
+
+class ServiceEmpleados:
+    def __init__(self):
+        self.connection = oracledb.connect(user='SYSTEM'
+           , password='oracle', dsn='localhost/xe')
+    
+    def getEmpleados(self):
+        sql = "select * from EMP"
+        cursor = self.connection.cursor()
+        cursor.execute(sql)
+        lista = []
+        for row in cursor:
+            emp = Empleado()
+            emp.idEmpleado = row[0]
+            emp.apellido = row[1]
+            emp.oficio = row[2]
+            emp.salario = row[5]
+            emp.departamento = row[7]
+            lista.append(emp)
+        cursor.close()
+        return lista
+
+
 class Hospital:
     idHospital = 0
     nombre = ""
