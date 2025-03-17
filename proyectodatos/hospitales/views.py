@@ -86,3 +86,6 @@ def detallesDepartamento(request):
         return render(request, 'pages/detallesdepartamento.html', context)
     else:
         return render(request, 'pages/detallesdepartamento.html')
+
+def empleadosDepartamento(request):
+    return render(request, 'pages/empleadosdepartamento.html')
