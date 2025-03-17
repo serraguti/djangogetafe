@@ -4,6 +4,11 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .celdaverde {
+            background-color: lightgreen;
+        }
+    </style>
 </head>
 <body>
     {% include 'pages/menu.html' %}
@@ -31,7 +36,7 @@
         </tr>
         {% for emp in empleados %}
         <tr>
-            <td>{{emp.apellido}}</td>
+            <td class="celdaverde">{{emp.apellido}}</td>
             <td>{{emp.oficio}}</td>
             <td>{{emp.salario}}</td>
             <td>{{emp.departamento}}</td>

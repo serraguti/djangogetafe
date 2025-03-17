@@ -19,7 +19,7 @@ CREATE TABLE PERSONAJES (
 );
 
 INSERT INTO SERIES (IDSERIE, SERIE, IMAGEN, ANYO) VALUES (1, 'Juego de tronos', 'https://cadenaser00.epimg.net/ser/imagenes/2019/05/23/television/1558591913_020782_1558595107_noticia_normal.jpg', 2011);
-INSERT INTO SERIES (IDSERIE, SERIE, IMAGEN, ANYO) VALUES (2, 'The Mandaloria', 'https://images-na.ssl-images-amazon.com/images/I/71bBDuXUvOL.jpg', 2019);
+INSERT INTO SERIES (IDSERIE, SERIE, IMAGEN, ANYO) VALUES (2, 'The Mandalorian', 'https://images-na.ssl-images-amazon.com/images/I/71bBDuXUvOL.jpg', 2019);
 INSERT INTO SERIES (IDSERIE, SERIE, IMAGEN, ANYO) VALUES (3, 'Stranger Things', 'https://static.posters.cz/image/750/posters/stranger-things-one-sheet-season-2-i67844.jpg', 2016);
 INSERT INTO SERIES (IDSERIE, SERIE, IMAGEN, ANYO) VALUES (4, 'Narcos', 'https://www.espanolavanzado.com/images/articles/spanish/narcos.jpg', 2015);
 INSERT INTO SERIES (IDSERIE, SERIE, IMAGEN, ANYO) VALUES (5, 'The Boys', 'https://as01.epimg.net/epik/imagenes/2020/09/14/portada/1600093038_124653_1600093183_noticia_normal_recorte1.jpg', 2019);
