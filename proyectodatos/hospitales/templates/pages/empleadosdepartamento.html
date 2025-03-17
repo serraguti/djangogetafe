@@ -12,8 +12,12 @@
     </h1>
     <form method="post">
         {% csrf_token %}
-        <label>Introduzca ID departamento:</label>
-        <input type="number" name="iddepartamento"/>
+        <label>Seleccione departamento:</label>
+        <select name="iddepartamento">
+            {% for dept in departamentos %}
+            <option value="{{dept.numero}}">{{dept.nombre}}</option>
+            {% endfor %}
+        </select>
         <button>
             Buscar empleados
         </button>

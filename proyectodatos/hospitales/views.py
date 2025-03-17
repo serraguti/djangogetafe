@@ -89,15 +89,19 @@ def detallesDepartamento(request):
 
 def empleadosDepartamento(request):
     servicio = ServiceEmpleados()
+    serviciodept = ServiceDepartamentos()
+    departamentos = serviciodept.getDepartamentos()
     if ('iddepartamento' in request.POST):
         numero = request.POST['iddepartamento']
         empleados = servicio.getEmpleadosDepartamento(numero)
         context = {
-            "empleados": empleados
+            "empleados": empleados, 
+            "departamentos": departamentos
         }
     else:
         empleados = servicio.getEmpleados()
         context = {
-            "empleados": empleados
+            "empleados": empleados, 
+            "departamentos": departamentos
         }
     return render(request, 'pages/empleadosdepartamento.html', context)
