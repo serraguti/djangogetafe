@@ -10,7 +10,14 @@
     <h1 style="color:blue">
         Empleados departamento
     </h1>
-
+    <form method="post">
+        {% csrf_token %}
+        <label>Introduzca ID departamento:</label>
+        <input type="number" name="iddepartamento"/>
+        <button>
+            Buscar empleados
+        </button>
+    </form>
     <table border="1">
         <tr>
             <th>Apellido</th>

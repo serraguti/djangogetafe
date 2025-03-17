@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from hospitales.models import ServiceDepartamento,ServiceHospital, ServiceEmpleados
+from hospitales.models import ServiceDepartamentos,ServiceHospital, ServiceEmpleados
 
 # Create your views here.
 def index(request):
@@ -89,8 +89,15 @@ def detallesDepartamento(request):
 
 def empleadosDepartamento(request):
     servicio = ServiceEmpleados()
-    empleados = servicio.getEmpleados()
-    context = {
-        "empleados": empleados
-    }
+    if ('iddepartamento' in request.POST):
+        numero = request.POST['iddepartamento']
+        empleados = servicio.getEmpleadosDepartamento(numero)
+        context = {
+            "empleados": empleados
+        }
+    else:
+        empleados = servicio.getEmpleados()
+        context = {
+            "empleados": empleados
+        }
     return render(request, 'pages/empleadosdepartamento.html', context)
