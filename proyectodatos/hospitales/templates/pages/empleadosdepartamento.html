@@ -10,5 +10,22 @@
     <h1 style="color:blue">
         Empleados departamento
     </h1>
+
+    <table border="1">
+        <tr>
+            <th>Apellido</th>
+            <th>Oficio</th>
+            <th>Salario</th>
+            <th>Departamento</th>
+        </tr>
+        {% for emp in empleados %}
+        <tr>
+            <td>{{emp.apellido}}</td>
+            <td>{{emp.oficio}}</td>
+            <td>{{emp.salario}}</td>
+            <td>{{emp.departamento}}</td>
+        </tr>
+        {% endfor %}
+    </table>
 </body>
 </html>
