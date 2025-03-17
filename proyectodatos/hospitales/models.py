@@ -29,6 +29,22 @@ class ServiceEmpleados:
             lista.append(emp)
         cursor.close()
         return lista
+    
+    def getEmpleadosDepartamento(self, numDept):
+        sql = "select * from EMP where DEPT_NO=:p1"
+        cursor = self.connection.cursor()
+        cursor.execute(sql, (numDept, ))
+        lista = []
+        for row in cursor:
+            emp = Empleado()
+            emp.idEmpleado = row[0]
+            emp.apellido = row[1]
+            emp.oficio = row[2]
+            emp.salario = row[5]
+            emp.departamento = row[7]
+            lista.append(emp)
+        cursor.close()
+        return lista
 
 
 class Hospital:
