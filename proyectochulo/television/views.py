@@ -20,13 +20,21 @@ def personajesSeries(request):
 
 def modificarPersonaje(request):
     servicio = ServiceSeries()
-    if ('idpersonaje' in request.GET):
+    if ('cajaimagen' in request.POST):
+        idpersonaje = request.POST['cajaidpersonaje']
+        nombre = request.POST['cajanombre']
+        imagen = request.POST['cajaimagen']
+        idserie = request.POST['cajaserie']
+        servicio.updatePersonaje(idpersonaje, nombre, imagen, idserie)
+        return render(request, 'pages/modificarpersonaje.html')
+    elif ('idpersonaje' in request.GET):
         idpersonaje = request.GET['idpersonaje']
         personaje = servicio.findPersonaje(idpersonaje)
         context = {
             "personaje": personaje
         }
         return render(request, 'pages/modificarpersonaje.html', context)
+        
     else:
         return render(request, 'pages/modificarpersonaje.html')
 

@@ -12,14 +12,20 @@
     <h1>Update personaje</h1>
     <div>
         <form method="post">
+            {% csrf_token %}
+            <input type="hidden" name="cajaidpersonaje"
+            value="{{personaje.idPersonaje}}"/>
             <label>Nombre: </label>
             <input type="text" name="cajanombre"
+                value="{{personaje.nombre}}"
                 class="form-control"/>
             <label>Imagen: </label>
             <input type="text" name="cajaimagen"
+                value="{{personaje.imagen}}"
             class="form-control"/>
             <label>Serie</label>
             <input type="text" name="cajaserie"
+            value="{{personaje.idSerie}}"
             class="form-control"/>
             <button class="btn btn-info">Update</button>
         </form>
