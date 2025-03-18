@@ -23,12 +23,19 @@
             <input type="text" name="cajaimagen"
                 value="{{personaje.imagen}}"
             class="form-control"/>
-            <label>Serie</label>
+            <label>Seleccione Personaje</label>
+            <select name="cajaserie" class="form-control">
+                {% for s in personajes %}
+                <option value="{{s.idSerie}}">{{s.nombre}}</option>
+                {% endfor %}
+            </select>
+            <label>Seleccione Serie</label>
             <select name="cajaserie" class="form-control">
                 {% for s in series %}
                 <option value="{{s.idSerie}}">{{s.titulo}}</option>
                 {% endfor %}
             </select>
+
             <button class="btn btn-info">Update</button>
         </form>
     </div>

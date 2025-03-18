@@ -31,9 +31,11 @@ def modificarPersonaje(request):
         idpersonaje = request.GET['idpersonaje']
         personaje = servicio.findPersonaje(idpersonaje)
         series = servicio.getSeries()
+        personajes = servicio.getPersonajes()
         context = {
             "personaje": personaje,
-            "series": series
+            "series": series,
+            "personajes": personajes
         }
         return render(request, 'pages/modificarpersonaje.html', context)
         
