@@ -18,6 +18,12 @@ def personajesSeries(request):
     else:
         return render(request, 'pages/personajesserie.html')
 
+def modificarPersonaje(request):
+    if ('idpersonaje' in request.GET):
+        return render(request, 'pages/modificarpersonaje.html')
+    else:
+        return render(request, 'pages/modificarpersonaje.html')
+
 def metodoPersonajes(request):
     servicio = ServiceSeries()
     personajes = servicio.getPersonajes()
