@@ -5,6 +5,14 @@ from television.models import ServiceSeries
 def index(request):
     return render(request, 'pages/index.html')
 
+def metodoPersonajes(request):
+    servicio = ServiceSeries()
+    personajes = servicio.getPersonajes()
+    context = {
+        "personajes": personajes
+    }
+    return render(request, 'pages/personajes.html', context)
+
 def metodoSeries(request):
     servicio = ServiceSeries()
     series = servicio.getSeries()
