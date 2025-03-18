@@ -19,6 +19,20 @@ class ServiceSeries:
         self.connection = oracledb.connect(user='SYSTEM'
                                            , password='oracle'
                                            , dsn='localhost/xe')
+    
+    def findPersonaje(self, idPersonaje):
+        sql = "select * from PERSONAJES where IDPERSONAJE=:p1"
+        cursor = self.connection.cursor()
+        cursor.execute(sql, (idPersonaje, ))
+        row = cursor.fetchone()
+        person = Personaje()
+        person.idPersonaje = row[0]
+        person.nombre = row[1]
+        person.imagen = row[2]
+        person.idSerie = row[3]
+        cursor.close()
+        return person
+
     def updatePersonaje(self, idPersonaje, nombre, imagen, idSerie):
         sql = """
                 update PERSONAJES set PERSONAJE=:p1
