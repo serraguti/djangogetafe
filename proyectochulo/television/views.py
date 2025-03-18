@@ -30,8 +30,10 @@ def modificarPersonaje(request):
     elif ('idpersonaje' in request.GET):
         idpersonaje = request.GET['idpersonaje']
         personaje = servicio.findPersonaje(idpersonaje)
+        series = servicio.getSeries()
         context = {
-            "personaje": personaje
+            "personaje": personaje,
+            "series": series
         }
         return render(request, 'pages/modificarpersonaje.html', context)
         
