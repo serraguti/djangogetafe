@@ -36,4 +36,22 @@ class ServiceDepartamentos:
     def delete(self, numero):
         peticion = "api/departamentos/" + numero
         requests.delete(self.url + peticion)
-        
+    
+    def findDepartamento(self, numero):
+        peticion = "api/departamentos/" + numero
+        response = requests.get(self.url + peticion)
+        json = response.json()
+        dept = Departamento()
+        dept.numero = json['idDepartamento']
+        dept.nombre = json["nombre"]
+        dept.localidad = json['localidad']
+        return dept
+
+    def update(self, numero, nombre, localidad):
+        peticion = "api/departamentos"
+        deptjson = {
+            "idDepartamento": numero,
+            "nombre": nombre,
+            "localidad": localidad
+            }
+        requests.put(self.url + peticion, json=deptjson)
