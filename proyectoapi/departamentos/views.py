@@ -41,7 +41,7 @@ def modificar(request):
         #UPDATE
         id = request.POST['cajaid']
         nombre = request.POST['cajanombre']
-        localidad = request.POST['localidad']
+        localidad = request.POST['cajalocalidad']
         servicio.update(id, nombre, localidad)
         departamentos = servicio.getDepartamentos()
         context= {
