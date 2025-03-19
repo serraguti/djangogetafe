@@ -23,3 +23,12 @@ class ServiceDepartamentos:
             dept.localidad = dato["localidad"]
             lista.append(dept)
         return lista
+    
+    def insertarDepartamento(self, numero, nombre, localidad):
+        peticion = "api/departamentos"
+        departamento = {
+                        "idDepartamento": numero,
+                        "nombre": nombre,
+                        "localidad": localidad
+                        }
+        requests.post(self.url + peticion, json=departamento)
