@@ -32,3 +32,8 @@ class ServiceDepartamentos:
                         "localidad": localidad
                         }
         requests.post(self.url + peticion, json=departamento)
+    
+    def delete(self, numero):
+        peticion = "api/departamentos/" + numero
+        requests.delete(self.url + peticion)
+        

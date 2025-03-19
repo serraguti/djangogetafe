@@ -24,3 +24,13 @@ def insertarDepartamento(request):
         return render(request, 'pages/index.html', context)
     else:
         return render(request, 'pages/create.html')
+    
+def eliminar(request):
+    servicio = ServiceDepartamentos()
+    id = request.GET['id']
+    servicio.delete(id)
+    departamentos = servicio.getDepartamentos()
+    context = {
+        "departamentos": departamentos
+    }
+    return render(request, 'pages/index.html', context)

@@ -14,12 +14,18 @@
             <th>Número</th>
             <th>Nombre</th>
             <th>Localidad</th>
+            <th></th>
         </tr>
         {% for dept in departamentos%}
         <tr>
             <td>{{dept.numero}}</td>
             <td>{{dept.nombre}}</td>
             <td>{{dept.localidad}}</td>
+            <td>
+                <a href="/delete?id={{dept.numero}}" class="btn btn-danger">
+                    Delete
+                </a>
+            </td>
         </tr>
         {% endfor %}
     </table>
