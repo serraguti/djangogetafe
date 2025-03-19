@@ -10,6 +10,7 @@
     {% include 'pages/menu.html' %}
     <h1>Create</h1>
     <form method="post">
+        {% csrf_token %}
         <label>Id</label>
         <input type="number" name="cajaid" class="form-control"/>
         <label>Nombre</label>
